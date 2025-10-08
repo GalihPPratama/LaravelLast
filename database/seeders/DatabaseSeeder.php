@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Student;
 use App\Models\Guardians;
 use App\Models\Classroom;
+use App\Models\Subject;
+use App\Models\Teacher;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,6 +24,9 @@ class DatabaseSeeder extends Seeder
             ->hasStudents(5)
             ->create();
         // User::factory(10)->create();
+        Subject::factory(4)
+            ->hasTeacher(5)
+            ->create();
 
         User::factory()->create([
             'name' => 'Test User',
