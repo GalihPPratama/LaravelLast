@@ -27,6 +27,9 @@ table, th, td {
                 <th scope="col" class="px-6 py-3">
                     Description
                 </th>
+                <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                    Teachers
+                </th>
 
             </tr>
         </thead>
@@ -40,6 +43,9 @@ table, th, td {
                     {{$subject["name"]}}
                 </td>
                 <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                    {{$subject["description"] }}
+                </td>
+                <td class="px-6 py-4">
                     @foreach ($subject->teacher as $teacher)
                     {{ $teacher->name }}   <br>                     
                     @endforeach
