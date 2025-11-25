@@ -1,4 +1,4 @@
-<x-Layout>
+<x-layout>
     <x-slot:judul>{{ $title }}</x-slot:judul>
     home
-</x-Layout>
+</x-layout>
