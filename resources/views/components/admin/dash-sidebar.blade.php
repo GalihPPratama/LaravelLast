@@ -26,10 +26,10 @@
 
         <ul class="space-y-2">
             <x-admin.dash-sidelink href="/admin/student" :active="request()->is('admin/student')">Students</x-admin.dash-sidelink>
-            <x-admin.dash-sidelink href="/guardian" :active="request()->is('guardian')">Guardian</x-admin.dash-sidelink>
+            <x-admin.dash-sidelink href="/admin/guardian" :active="request()->is('admin/guardian')">Guardian</x-admin.dash-sidelink>
             <x-admin.dash-sidelink href="/admin/classroom" :active="request()->is('admin/classroom')">Classroom</x-admin.dash-sidelink>
-            <x-admin.dash-sidelink href="/teacher" :active="request()->is('teacher')">Teacher</x-admin.dash-sidelink>
-            <x-admin.dash-sidelink href="/subject" :active="request()->is('subject')">Subject</x-admin.dash-sidelink>
+            <x-admin.dash-sidelink href="/admin/teacher" :active="request()->is('admin/teacher')">Teacher</x-admin.dash-sidelink>
+            <x-admin.dash-sidelink href="/admin/subject" :active="request()->is('admin/subject')">Subject</x-admin.dash-sidelink>
         </ul>
     </div>
 </aside>

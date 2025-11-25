@@ -15,6 +15,7 @@ class Student extends Model
         'classroom_id',
         'email',
         'addressphp',
+        'birthdate',
     ];
 
     public function classroom()
