@@ -56,6 +56,7 @@ Route::delete('admin/guardian/{guardian}', [AdminGuardianController::class, 'des
 
 Route::get('/admin/classroom', [AdminClassroomController::class, 'index']);
 Route::post('admin/classroom', [AdminClassroomController::class, 'store'])->name('classrooms.store');
+Route::put('/admin/classroom/{classroom}', [AdminClassroomController::class, 'update'])->name('classroom.update');
 
 Route::get('/admin/subject', [AdminSubjectController::class, 'index'])->name('subject.index');
 Route::post('/admin/subject', [AdminSubjectController::class, 'store'])->name('subject.store');

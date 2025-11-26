@@ -24,7 +24,6 @@
 
                 <x-admin.toptable button-label="Add Student" on-click="openAddModal = true" />
 
-                <!-- ADD MODAL -->
                 <div x-show="openAddModal" x-transition x-cloak
                     class="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
                     <div @click.outside="openAddModal = false"
@@ -39,13 +38,12 @@
                 </div>
 
 
-                <!-- TABLE -->
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
 
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th class="px-4 py-3">ID</th>
+                                <th class="px-4 py-3">No</th>
                                 <th class="px-4 py-3">Nama</th>
                                 <th class="px-4 py-3">Birthday</th>
                                 <th class="px-4 py-3">Class</th>
@@ -72,7 +70,6 @@
 
                                     <td class="px-4 py-3 flex items-center justify-end relative">
 
-                                        <!-- 3 dots button -->
                                         <button id="{{ $buttonId }}" data-dropdown-toggle="{{ $dropdownId }}"
                                             class="inline-flex items-center p-0.5 text-sm text-gray-500 hover:text-gray-800 rounded-lg dark:text-gray-400 dark:hover:text-gray-100"
                                             type="button">
@@ -82,12 +79,11 @@
                                             </svg>
                                         </button>
 
-                                        <!-- Dropdown -->
                                         <div id="{{ $dropdownId }}"
                                             class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200">
                                                 <li>
-                                                    <!-- EDIT ACTION -->
+                                                    {{-- EDIT HEREここです、これはeditですわ --}}
                                                     <button
                                                         @click="
                                                         openEditModal = true;
@@ -97,7 +93,7 @@
                                                         classroom_id: '{{ $student->classroom_id }}',
                                                         email: '{{ $student->email }}',
                                                         addressphp: '{{ $student->addressphp }}',
-                                                        birthdated: '{{ $student->birthdate }}',
+                                                        birthdate: '{{ $student->birthdate }}',
                                                     };
                                                     "
                                                         class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">

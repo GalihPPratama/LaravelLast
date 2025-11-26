@@ -15,7 +15,7 @@ class AdminTeacherController extends Controller
     public function index()
     {
         $teachers = Teacher::with('subject')->paginate(10);
-        $subjects = Subject::all();
+        $subjects = Subject::doesntHave('teacher')->get();
         return view('admin.teacher.index', [
             'title' => 'Teachers',
             'teachers' => $teachers,

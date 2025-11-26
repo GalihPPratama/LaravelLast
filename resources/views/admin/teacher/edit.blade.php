@@ -8,7 +8,6 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-        <!-- Name -->
         <div>
             <label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
                 Name
@@ -16,8 +15,6 @@
             <input type="text" name="name" x-model="editData.name"
                 class="w-full p-2 rounded border text-white dark:bg-gray-700 dark:border-gray-600" required>
         </div>
-
-        <!-- Subject -->
         <div>
             <label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
                 Subject
@@ -30,7 +27,6 @@
             </select>
         </div>
 
-        <!-- Phone -->
         <div>
             <label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
                 Phone
@@ -39,7 +35,6 @@
                 class="w-full p-2 rounded border text-white dark:bg-gray-700 dark:border-gray-600">
         </div>
 
-        <!-- Email -->
         <div>
             <label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
                 Email
@@ -49,7 +44,6 @@
         </div>
     </div>
 
-    <!-- Address (full width) -->
     <div>
         <label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
             Address

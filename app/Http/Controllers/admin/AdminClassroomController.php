@@ -67,7 +67,15 @@ class AdminClassroomController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:100',
+            'description' => 'nullable|string|max:255',
+        ]);
+
+        $classrooms = Classroom::findOrFail($id);
+        $classrooms->update($validated);
+
+        return redirect()->back()->with('success', 'Classroom berhasil diupdate!');
     }
 
     /**

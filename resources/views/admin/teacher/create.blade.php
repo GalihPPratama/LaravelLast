@@ -44,7 +44,6 @@
 >
         </div>
 
-        <!-- Email -->
         <div>
             <label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
                 Email
@@ -55,7 +54,6 @@
         </div>
     </div>
 
-    <!-- Address (full width) -->
     <div>
         <label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
             Address

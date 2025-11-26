@@ -7,9 +7,7 @@
                 x-data="{
                     openAddModal: false,
                     openEditModal: false,
-                    openDeleteModal: false,
                     editUrl: '',
-                    deleteUrl: '',
                     editData: {}
                 }"
             >

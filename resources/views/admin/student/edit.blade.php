@@ -15,7 +15,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
-                <!-- Name -->
+
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Name
@@ -24,7 +24,6 @@
                         class="w-full border rounded-lg p-2 dark:bg-gray-700 dark:text-white">
                 </div>
 
-                <!-- Classroom -->
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Classroom
@@ -38,7 +37,6 @@
                     </select>
                 </div>
 
-                <!-- Email -->
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Email
@@ -47,7 +45,6 @@
                         class="w-full border rounded-lg p-2 dark:bg-gray-700 dark:text-white">
                 </div>
 
-                <!-- Address -->
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Address
@@ -56,7 +53,6 @@
                         class="w-full border rounded-lg p-2 dark:bg-gray-700 dark:text-white">
                 </div>
 
-                <!-- Birthday -->
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Birthday

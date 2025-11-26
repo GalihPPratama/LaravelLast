@@ -7,8 +7,8 @@
 
             <div 
                 x-data="{
-                    openAddModal: false,
-                    openDeleteModal: false,
+                        openAddModal: false,
+                        openDeleteModal: false,
                     deleteUrl: '',
 
                     openEditModal: false,
@@ -74,7 +74,6 @@
 
                                     <td class="px-4 py-3 flex items-center justify-end relative">
 
-                                        <!-- 3 dots -->
                                         <button id="{{ $buttonId }}" data-dropdown-toggle="{{ $dropdownId }}"
                                             class="inline-flex items-center p-0.5 text-sm text-gray-500
                                                    hover:text-gray-800 rounded-lg dark:text-gray-400 dark:hover:text-gray-100"
@@ -84,14 +83,12 @@
                                             </svg>
                                         </button>
 
-                                        <!-- DROPDOWN -->
                                         <div id="{{ $dropdownId }}"
                                             class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow 
                                                    dark:bg-gray-700 dark:divide-gray-600">
 
                                             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200">
                                                 <li>
-                                                    <!-- EDIT BUTTON -->
                                                     <button
                                                         @click="
                                                             openEditModal = true;
@@ -102,6 +99,7 @@
                                                                 phone: '{{ addslashes($teacher->phone) }}',
                                                                 email: '{{ addslashes($teacher->email) }}',
                                                                 address: `{{ addslashes($teacher->address) }}`,
+                                                                {{-- yo explanation addslashes here, it normalizes characters that JS will think a syntax, ini aku sendiri yg nulis btw --}}
                                                             };
                                                         "
                                                         class="block py-2 px-4 hover:bg-gray-100 
@@ -110,7 +108,6 @@
                                                     </button>
                                                 </li>
                                             </ul>
-
                                             <div class="py-1">
                                                 <button
                                                     @click="
@@ -122,9 +119,7 @@
                                                     Delete
                                                 </button>
                                             </div>
-
                                         </div>
-
                                     </td>
                                 </tr>
                             @endforeach
@@ -133,15 +128,12 @@
                     </table>
                 </div>
 
-                <!-- PAGINATION -->
                 <div class="p-4">
                     {{ $teachers->links() }}
                 </div>
 
-                <!-- DELETE MODAL -->
                 @include('admin.teacher.delete')
 
-                <!-- EDIT MODAL (NOW A REAL MODAL LIKE STUDENT) -->
                 <div x-show="openEditModal" x-transition x-cloak
                     class="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
 

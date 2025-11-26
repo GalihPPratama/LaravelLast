@@ -1,25 +1,26 @@
 <x-admin.dash-layout>
     <x-slot:judul>{{ $title }}</x-slot:judul>
     <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
-        <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+        <div class="mx-auto max-w-screen-xl px-4 lg:px-12" x-data="{
+            openAddModal: false,
+            openEditModal: false,
+            editUrl: '',
+            editData: {}
+        }">
             <!-- Start coding here -->
             <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-                <div x-data="{ openAddModal: false }">
+                <div>
                     <x-admin.toptable button-label="Add Classroom" on-click="openAddModal = true" />
 
 
-                    {{-- Modal --}}
                     <div x-show="openAddModal" x-cloak>
 
-                        <!-- Overlay -->
                         <div class="fixed inset-0 bg-black/50 z-40" @click="openAddModal = false">
                         </div>
 
-                        <!-- Modal Box -->
                         <div class="fixed inset-0 flex items-center justify-center z-50" @click.stop>
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg w-full max-w-2xl p-6 relative">
 
-                                <!-- Close Button -->
                                 <button @click="openAddModal = false"
                                     class="absolute top-2 right-3 text-gray-400 hover:text-gray-600">
                                     ✕
@@ -31,13 +32,15 @@
                     </div>
 
 
+
+
                 </div>
 
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="px-4 py-3">#</th>
+                                <th scope="col" class="px-4 py-3">No</th>
                                 <th scope="col" class="px-4 py-3">Room Name</th>
                                 <th scope="col" class="px-4 py-3">Students List</th>
                                 <th scope="col" class="px-4 py-3">Action</th>
@@ -73,18 +76,19 @@
                                             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                                                 aria-labelledby="{{ $buttonId }}">
                                                 <li>
-                                                    <a href="#"
-                                                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                                                    <button
+                                                        @click.stop="
+                                                            openEditModal = true;
+                                                            editUrl = '{{ route('classroom.update', $classroom->id) }}';
+                                                            editData = {
+                                                                name: '{{ $classroom->name }}',
+                                                            };
+                                                        "
+                                                        class="w-full text-left block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600">
+                                                        Edit
+                                                    </button>
                                                 </li>
                                             </ul>
-                                            <div class="py-1">
-                                                <a href="#"
-                                                    class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-                                            </div>
                                         </div>
                                     </td>
                                 </tr>
@@ -92,6 +96,7 @@
                         </tbody>
                     </table>
                 </div>
+                @include('admin.classroom.edit')
             </div>
         </div>
     </section>
