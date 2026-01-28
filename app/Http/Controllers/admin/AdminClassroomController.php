@@ -11,14 +11,21 @@ class AdminClassroomController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $classrooms = Classroom::with('students')->get();
+        $search = $request->search;
+
+        $classrooms = Classroom::with('students')
+            ->when($search, function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%");
+            })
+            ->paginate(3)
+            ->withQueryString();
 
         return view('admin.classroom.index', [
-        'title' => 'Classrooms',
-        'classrooms' => $classrooms
-    ]);
+            'title' => 'Classroom List',
+            'classrooms' => $classrooms,
+        ]);
     }
 
     /**

@@ -11,9 +11,18 @@ class AdminGuardianController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $guardians = Guardians::paginate(10);
+        $search = $request->search;
+
+        $guardians = Guardian::when($search, function ($query) use ($search) {
+            $query->where('name', 'like', "%{$search}%")
+                ->orWhere('Job', 'like', "%{$search}%")
+                ->orWhere('Phone', 'like', "%{$search}%")
+                ->orWhere('email', 'like', "%{$search}%");
+        })
+        ->paginate(3)
+        ->withQueryString();
 
         return view('admin.guardian.index', [
             'title' => 'Guardians',

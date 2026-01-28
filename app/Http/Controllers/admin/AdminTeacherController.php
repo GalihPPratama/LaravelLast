@@ -12,9 +12,16 @@ class AdminTeacherController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $teachers = Teacher::with('subject')->paginate(10);
+        $search = $request->search;
+
+        $teachers = Teacher::with('subject')
+            ->when($search, function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%");
+            })
+            ->paginate(10)
+            ->withQueryString();
         $subjects = Subject::doesntHave('teacher')->get();
         return view('admin.teacher.index', [
             'title' => 'Teachers',
